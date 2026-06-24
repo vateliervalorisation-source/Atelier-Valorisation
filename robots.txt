@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/before_
+
+Sitemap: https://www.ateliervalorisation.fr/sitemap.xml
