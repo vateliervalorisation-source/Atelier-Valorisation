@@ -206,8 +206,8 @@
     }
     .hero-content h1 {
       font-family: 'Fraunces', Georgia, serif;
-      font-weight: 300; font-size: clamp(46px, 5.8vw, 74px);
-      line-height: 1.04; color: var(--text); margin-bottom: 32px;
+      font-weight: 300; font-size: clamp(52px, 6.8vw, 92px);
+      line-height: 1.01; color: var(--text); margin-bottom: 32px;
       opacity: 0; transform: translateY(18px);
     }
     .hero-content h1 em { font-style: italic; color: var(--gold); }
@@ -271,7 +271,7 @@
     }
     .title {
       font-family: 'Fraunces', Georgia, serif; font-weight: 300;
-      font-size: clamp(38px, 4.8vw, 60px); line-height: 1.12;
+      font-size: clamp(42px, 5.5vw, 72px); line-height: 1.06;
       color: var(--text); margin-bottom: 18px;
     }
     .intro {
@@ -359,7 +359,20 @@
     }
 
     /* ── AVANT / APRÈS ── */
-    .ba-section { background: var(--white); }
+    .ba-section { background: var(--cream); padding: 100px 0 120px; }
+    .ba-intro {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 40px; margin-bottom: 64px; flex-wrap: wrap;
+    }
+    .ba-headline {
+      font-family: 'Fraunces', Georgia, serif; font-weight: 300;
+      font-size: clamp(48px, 6.5vw, 90px); line-height: 1.02;
+      color: var(--text); margin: 0;
+    }
+    .ba-sub {
+      font-size: 13px; color: var(--muted); line-height: 1.85;
+      max-width: 320px; flex-shrink: 0; padding-bottom: 8px;
+    }
     .ba-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .ba-wrap:nth-child(3) { grid-column: 1 / -1; max-width: 680px; margin: 0 auto; width: 100%; }
     .ba-wrap { display: flex; flex-direction: column; gap: 12px; }
@@ -651,14 +664,17 @@
     }
     .faq-answer strong { color: var(--text); font-weight: 400; }
 
-    /* ── CTA FINAL ── */
+    /* ── CTA / DEVIS ── */
     .cta-section { background: var(--dark); padding: 148px 0; }
     .cta-section .container { text-align: center; }
     .cta-section .label { color: rgba(201,169,110,.48); }
-    .cta-section .title { color: var(--cream); font-size: clamp(40px, 5.2vw, 66px); }
+    .cta-section .title { color: var(--cream); font-size: clamp(40px, 5.2vw, 72px); }
     .cta-section .intro { color: rgba(250,247,242,.42); margin: 0 auto 52px; }
+    .cta-devis { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .cta-alt { background: transparent; color: rgba(250,247,242,.55); border: 1px solid rgba(250,247,242,.15); }
+    .cta-alt:hover { background: rgba(250,247,242,.08); color: var(--cream); transform: none; }
     .cta-sub {
-      display: block; margin-top: 22px;
+      display: block; margin-top: 32px;
       font-size: 10px; color: rgba(250,247,242,.28); letter-spacing: .06em;
     }
 
@@ -714,13 +730,15 @@
       footer nav ul { align-items: center; }
     }
     @media (max-width: 640px) {
-      .hero-content h1 { font-size: 42px; }
+      .hero-content h1 { font-size: 44px; line-height: 1.04; }
       .process-ol { grid-template-columns: 1fr; }
       .faq-answer { padding-right: 0; }
       .pourqui-row { grid-template-columns: 32px 1fr; gap: 16px; }
       .pourqui-btn { display: none; }
       .img-break { height: 45vh; }
       .testi-big { font-size: clamp(20px, 5.5vw, 28px); }
+      .ba-intro { flex-direction: column; align-items: flex-start; gap: 20px; margin-bottom: 40px; }
+      .ba-sub { max-width: 100%; }
     }
   </style>
 </head>
@@ -788,11 +806,70 @@
     </div>
   </div>
 
+  <!-- ── AVANT / APRÈS ── -->
+  <section class="ba-section" aria-labelledby="ba-h">
+    <div class="container">
+      <div class="ba-intro reveal">
+        <h2 class="ba-headline" id="ba-h">La différence<br>est immédiate.</h2>
+        <p class="ba-sub">Glissez pour comparer. Lumière, couleurs, perspectives : chaque retouche est faite à la main.</p>
+      </div>
+
+      <div class="ba-grid">
+
+        <div class="ba-wrap reveal">
+          <div class="ba-header"><span class="room">Façade</span><span class="hint">&#8596; glisse</span></div>
+          <div class="ba-slider" role="slider" tabindex="0"
+               aria-label="Comparaison avant-après, façade"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img src="assets/before_facade.png" alt="Façade avant retouche" class="ba-before" loading="lazy" width="800" height="1067" decoding="async">
+            <img src="assets/after_facade.png"  alt="Façade après retouche professionnelle" class="ba-after" loading="lazy" width="800" height="1067" decoding="async">
+            <div class="ba-line" aria-hidden="true"></div>
+            <div class="ba-knob" aria-hidden="true"><svg viewBox="0 0 20 12"><polyline points="6,2 2,6 6,10"/><line x1="2" y1="6" x2="18" y2="6"/><polyline points="14,2 18,6 14,10"/></svg></div>
+            <div class="ba-lbl-a" aria-hidden="true">Après</div>
+            <div class="ba-lbl-b" aria-hidden="true">Avant</div>
+          </div>
+          <p class="ba-caption">Exposition corrigée, ciel remplacé, façade nettoyée numériquement.</p>
+        </div>
+
+        <div class="ba-wrap reveal">
+          <div class="ba-header"><span class="room">Salle de bain</span><span class="hint">&#8596; glisse</span></div>
+          <div class="ba-slider" role="slider" tabindex="0"
+               aria-label="Comparaison avant-après, salle de bain"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img src="assets/before_sdb.jpg" alt="Salle de bain avant retouche" class="ba-before" loading="lazy" width="800" height="1067" decoding="async">
+            <img src="assets/after_sdb.png"  alt="Salle de bain après retouche professionnelle" class="ba-after" loading="lazy" width="800" height="1067" decoding="async">
+            <div class="ba-line" aria-hidden="true"></div>
+            <div class="ba-knob" aria-hidden="true"><svg viewBox="0 0 20 12"><polyline points="6,2 2,6 6,10"/><line x1="2" y1="6" x2="18" y2="6"/><polyline points="14,2 18,6 14,10"/></svg></div>
+            <div class="ba-lbl-a" aria-hidden="true">Après</div>
+            <div class="ba-lbl-b" aria-hidden="true">Avant</div>
+          </div>
+          <p class="ba-caption">Balance des blancs corrigée, reflets maîtrisés, luminosité plancher.</p>
+        </div>
+
+        <div class="ba-wrap reveal">
+          <div class="ba-header"><span class="room">Cuisine</span><span class="hint">&#8596; glisse</span></div>
+          <div class="ba-slider" role="slider" tabindex="0"
+               aria-label="Comparaison avant-après, cuisine"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img src="assets/before_cuisine.jpg" alt="Cuisine avant retouche" class="ba-before" loading="lazy" width="800" height="1067" decoding="async">
+            <img src="assets/after_cuisine.png"  alt="Cuisine après retouche professionnelle" class="ba-after" loading="lazy" width="800" height="1067" decoding="async">
+            <div class="ba-line" aria-hidden="true"></div>
+            <div class="ba-knob" aria-hidden="true"><svg viewBox="0 0 20 12"><polyline points="6,2 2,6 6,10"/><line x1="2" y1="6" x2="18" y2="6"/><polyline points="14,2 18,6 14,10"/></svg></div>
+            <div class="ba-lbl-a" aria-hidden="true">Après</div>
+            <div class="ba-lbl-b" aria-hidden="true">Avant</div>
+          </div>
+          <p class="ba-caption">Perspective verticale corrigée, lumière naturelle reconstituée.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ── POUR QUI ── -->
   <section class="pour-qui-section" aria-labelledby="pourqui-h">
     <div class="container">
       <span class="label reveal">Pour qui</span>
-      <h2 class="title reveal" id="pourqui-h">Vous avez un bien à montrer.<br>Voilà pourquoi ça nous concerne.</h2>
+      <h2 class="title reveal" id="pourqui-h">Tout le monde qui a un bien<br>à présenter est concerné.</h2>
       <div class="pourqui-list">
 
         <a href="mailto:contact@ateliervalorisation.fr?subject=Devis%20agence" class="pourqui-row reveal">
@@ -870,64 +947,6 @@
     <img src="assets/after_sdb.png" alt="" aria-hidden="true" loading="lazy" width="1920" height="1280">
     <span class="img-break-caption">Retouche manuelle &middot; Livraison 48h</span>
   </div>
-
-  <!-- ── AVANT / APRÈS ── -->
-  <section class="ba-section" aria-labelledby="ba-h">
-    <div class="container">
-      <span class="label reveal">Avant &middot; Après</span>
-      <h2 class="title reveal" id="ba-h">La même pièce.<br>Une autre impression.</h2>
-      <p class="intro reveal">Chaque photo est retouchée manuellement, bien par bien. Pas de preset global. Lumière, couleurs, perspectives : travaillées pour maximiser l'impact de chaque visuel.</p>
-
-      <div class="ba-grid">
-
-        <div class="ba-wrap reveal">
-          <div class="ba-header"><span class="room">Façade</span><span class="hint">Glisse &#8596;</span></div>
-          <div class="ba-slider" role="slider" tabindex="0"
-               aria-label="Comparaison avant-après, façade"
-               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-            <img src="assets/before_facade.png" alt="Façade avant retouche" class="ba-before" loading="lazy" width="800" height="1067" decoding="async">
-            <img src="assets/after_facade.png"  alt="Façade après retouche professionnelle" class="ba-after" loading="lazy" width="800" height="1067" decoding="async">
-            <div class="ba-line" aria-hidden="true"></div>
-            <div class="ba-knob" aria-hidden="true"><svg viewBox="0 0 20 12"><polyline points="6,2 2,6 6,10"/><line x1="2" y1="6" x2="18" y2="6"/><polyline points="14,2 18,6 14,10"/></svg></div>
-            <div class="ba-lbl-a" aria-hidden="true">Après</div>
-            <div class="ba-lbl-b" aria-hidden="true">Avant</div>
-          </div>
-          <p class="ba-caption">Exposition corrigée, ciel remplacé, façade nettoyée numériquement.</p>
-        </div>
-
-        <div class="ba-wrap reveal">
-          <div class="ba-header"><span class="room">Salle de bain</span><span class="hint">Glisse &#8596;</span></div>
-          <div class="ba-slider" role="slider" tabindex="0"
-               aria-label="Comparaison avant-après, salle de bain"
-               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-            <img src="assets/before_sdb.jpg" alt="Salle de bain avant retouche" class="ba-before" loading="lazy" width="800" height="1067" decoding="async">
-            <img src="assets/after_sdb.png"  alt="Salle de bain après retouche professionnelle" class="ba-after" loading="lazy" width="800" height="1067" decoding="async">
-            <div class="ba-line" aria-hidden="true"></div>
-            <div class="ba-knob" aria-hidden="true"><svg viewBox="0 0 20 12"><polyline points="6,2 2,6 6,10"/><line x1="2" y1="6" x2="18" y2="6"/><polyline points="14,2 18,6 14,10"/></svg></div>
-            <div class="ba-lbl-a" aria-hidden="true">Après</div>
-            <div class="ba-lbl-b" aria-hidden="true">Avant</div>
-          </div>
-          <p class="ba-caption">Balance des blancs corrigée, reflets maîtrisés, luminosité plancher.</p>
-        </div>
-
-        <div class="ba-wrap reveal">
-          <div class="ba-header"><span class="room">Cuisine</span><span class="hint">Glisse &#8596;</span></div>
-          <div class="ba-slider" role="slider" tabindex="0"
-               aria-label="Comparaison avant-après, cuisine"
-               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-            <img src="assets/before_cuisine.jpg" alt="Cuisine avant retouche" class="ba-before" loading="lazy" width="800" height="1067" decoding="async">
-            <img src="assets/after_cuisine.png"  alt="Cuisine après retouche professionnelle" class="ba-after" loading="lazy" width="800" height="1067" decoding="async">
-            <div class="ba-line" aria-hidden="true"></div>
-            <div class="ba-knob" aria-hidden="true"><svg viewBox="0 0 20 12"><polyline points="6,2 2,6 6,10"/><line x1="2" y1="6" x2="18" y2="6"/><polyline points="14,2 18,6 14,10"/></svg></div>
-            <div class="ba-lbl-a" aria-hidden="true">Après</div>
-            <div class="ba-lbl-b" aria-hidden="true">Avant</div>
-          </div>
-          <p class="ba-caption">Perspective verticale corrigée, lumière naturelle reconstituée.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
   <!-- ── IMPACT ── -->
   <section class="problem-section" aria-labelledby="problem-h">
@@ -1101,14 +1120,17 @@
     </div>
   </section>
 
-  <!-- ── CTA FINAL ── -->
+  <!-- ── DEVIS / CTA ── -->
   <section class="cta-section" aria-labelledby="cta-h">
     <div class="container">
-      <span class="label reveal">Prêt à commencer ?</span>
-      <h2 class="title reveal" id="cta-h">Vous envoyez vos photos.<br>On vous rend un dossier<br>prêt à publier.</h2>
-      <p class="intro reveal">En 48h. Manuellement. Sans abonnement.</p>
-      <a href="mailto:contact@ateliervalorisation.fr" class="btn-gold reveal">Démarrer ma commande</a>
-      <span class="cta-sub reveal">contact@ateliervalorisation.fr &nbsp;&middot;&nbsp; Réponse sous 2h</span>
+      <span class="label reveal">Commencer</span>
+      <h2 class="title reveal" id="cta-h">Vous envoyez vos photos.<br>On s'occupe du reste.</h2>
+      <p class="intro reveal">Retouche manuelle. Livraison 48h. Tarif sur devis, sans abonnement, sans engagement.</p>
+      <div class="cta-devis reveal">
+        <a href="mailto:contact@ateliervalorisation.fr?subject=Demande%20de%20devis" class="btn-gold">Demander un devis</a>
+        <a href="mailto:contact@ateliervalorisation.fr" class="btn-primary cta-alt">Envoyer mes photos</a>
+      </div>
+      <span class="cta-sub reveal">contact@ateliervalorisation.fr &nbsp;&middot;&nbsp; Réponse sous 2h &nbsp;&middot;&nbsp; Toute la France</span>
     </div>
   </section>
 
