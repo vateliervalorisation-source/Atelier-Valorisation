@@ -280,6 +280,35 @@
     }
     .reveal { opacity: 0; transform: translateY(28px); }
 
+    /* ── TICKER ── */
+    .ticker-section {
+      background: var(--dark2);
+      padding: 15px 0;
+      overflow: hidden;
+      border-top: 1px solid rgba(201,169,110,.08);
+      border-bottom: 1px solid rgba(201,169,110,.08);
+    }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker-move 36s linear infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track { animation: none; }
+    }
+    .ticker-items {
+      white-space: nowrap;
+      font-size: 9px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: rgba(201,169,110,.48);
+      padding-right: 0;
+    }
+    @keyframes ticker-move {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
     /* ── POUR QUI : 6 audiences ── */
     .pour-qui-section { background: var(--cream); padding: 112px 0; }
     .pourqui-grid {
@@ -734,7 +763,7 @@
     <div class="hero-grain" aria-hidden="true"></div>
 
     <div class="hero-content">
-      <span class="hero-eyebrow">Retouche photo immobilière &middot; France entière &middot; 48h</span>
+      <span class="hero-eyebrow">Photos &middot; Vidéos &middot; Projections 3D &middot; France entière &middot; Livraison 48h</span>
       <h1 id="hero-h">
         La photo est<br>
         le premier argument<br>
@@ -754,6 +783,14 @@
   </section>
 
   <main id="main-content">
+
+  <!-- ── TICKER ── -->
+  <div class="ticker-section" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-items">Appartements &nbsp;&middot;&nbsp; Maisons &nbsp;&middot;&nbsp; Immeubles &nbsp;&middot;&nbsp; Bureaux &nbsp;&middot;&nbsp; Locaux commerciaux &nbsp;&middot;&nbsp; Villas &nbsp;&middot;&nbsp; VEFA &nbsp;&middot;&nbsp; Studios &nbsp;&middot;&nbsp; Chalets &nbsp;&middot;&nbsp; Lofts &nbsp;&middot;&nbsp; Maisons de prestige &nbsp;&middot;&nbsp; Locaux professionnels &nbsp;&middot;&nbsp; Résidences de services &nbsp;&middot;&nbsp; Gîtes &nbsp;&middot;&nbsp; Terrains &nbsp;&middot;&nbsp; Châteaux &nbsp;&middot;&nbsp;</span>
+      <span class="ticker-items">Appartements &nbsp;&middot;&nbsp; Maisons &nbsp;&middot;&nbsp; Immeubles &nbsp;&middot;&nbsp; Bureaux &nbsp;&middot;&nbsp; Locaux commerciaux &nbsp;&middot;&nbsp; Villas &nbsp;&middot;&nbsp; VEFA &nbsp;&middot;&nbsp; Studios &nbsp;&middot;&nbsp; Chalets &nbsp;&middot;&nbsp; Lofts &nbsp;&middot;&nbsp; Maisons de prestige &nbsp;&middot;&nbsp; Locaux professionnels &nbsp;&middot;&nbsp; Résidences de services &nbsp;&middot;&nbsp; Gîtes &nbsp;&middot;&nbsp; Terrains &nbsp;&middot;&nbsp; Châteaux &nbsp;&middot;&nbsp;</span>
+    </div>
+  </div>
 
   <!-- ── POUR QUI ── -->
   <section class="pour-qui-section" aria-labelledby="pourqui-h">
