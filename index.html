@@ -309,58 +309,59 @@
       to   { transform: translateX(-50%); }
     }
 
-    /* ── POUR QUI : 6 audiences ── */
+    /* ── POUR QUI : editorial list ── */
     .pour-qui-section { background: var(--cream); padding: 112px 0; }
-    .pourqui-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      margin-top: 68px;
-      border: 1px solid var(--gold-dim);
+    .pourqui-list { margin-top: 72px; }
+    .pourqui-row {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items: center; gap: 48px;
+      padding: 36px 0;
+      border-top: 1px solid rgba(201,169,110,.15);
+      text-decoration: none; color: inherit;
     }
-    .pourqui-card {
-      padding: 48px 40px;
-      border-right: 1px solid var(--gold-dim);
-      border-bottom: 1px solid var(--gold-dim);
-      display: flex; flex-direction: column;
-      transition: background .3s ease;
+    .pourqui-row:last-child { border-bottom: 1px solid rgba(201,169,110,.15); }
+    .pourqui-idx {
+      font-size: 10px; letter-spacing: .32em; color: var(--gold);
+      align-self: flex-start; padding-top: 6px;
     }
-    .pourqui-card:nth-child(3n) { border-right: none; }
-    .pourqui-card:nth-last-child(-n+3) { border-bottom: none; }
-    .pourqui-card:hover { background: var(--white); }
-
-    .pourqui-num {
-      font-family: 'Fraunces', Georgia, serif; font-weight: 300;
-      font-size: 11px; letter-spacing: .32em; color: var(--gold);
-      display: block; margin-bottom: 24px;
-    }
-    .pourqui-cat {
-      font-size: 9px; letter-spacing: .28em; text-transform: uppercase;
-      color: var(--muted); display: block; margin-bottom: 16px;
-    }
+    .pourqui-content { min-width: 0; }
     .pourqui-title {
       font-family: 'Fraunces', Georgia, serif; font-weight: 300;
-      font-size: clamp(18px, 1.9vw, 24px); color: var(--text);
-      line-height: 1.32; margin-bottom: 18px;
+      font-size: clamp(22px, 2.4vw, 34px); color: var(--text);
+      line-height: 1.18; margin-bottom: 10px;
+      transition: color .25s ease;
     }
-    .pourqui-desc {
-      font-size: 12px; color: var(--muted); line-height: 1.85; flex: 1;
+    .pourqui-row:hover .pourqui-title { color: var(--gold); }
+    .pourqui-desc-text { font-size: 12px; color: var(--muted); line-height: 1.85; max-width: 600px; }
+    .pourqui-btn {
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 1px solid rgba(201,169,110,.28); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .3s ease, border-color .3s ease;
     }
-    .pourqui-link {
-      display: inline-flex; align-items: center; gap: 7px;
-      margin-top: 24px; font-size: 10px; letter-spacing: .18em;
-      text-transform: uppercase; color: var(--text); text-decoration: none;
-      border-bottom: 1px solid rgba(201,169,110,.4); padding-bottom: 2px;
-      width: fit-content; transition: color .2s ease;
+    .pourqui-row:hover .pourqui-btn { background: var(--gold); border-color: var(--gold); }
+    .pourqui-btn svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 1.8; transition: stroke .3s ease; }
+    .pourqui-row:hover .pourqui-btn svg { stroke: var(--dark); }
+
+    /* ── IMAGE BREAK ── */
+    .img-break {
+      width: 100%; height: 75vh; min-height: 440px; overflow: hidden; position: relative;
     }
-    .pourqui-link:hover { color: var(--gold); }
-    .pourqui-link svg {
-      width: 10px; height: 10px; stroke: currentColor; fill: none;
-      stroke-width: 2; transition: transform .2s ease;
+    .img-break img {
+      position: absolute; inset: -15% 0; width: 100%; height: 130%;
+      object-fit: cover; object-position: center 30%; will-change: transform;
     }
-    .pourqui-link:hover svg { transform: translateX(3px); }
+    .img-break-caption {
+      position: absolute; bottom: 32px; right: 40px;
+      font-size: 9px; letter-spacing: .28em; text-transform: uppercase;
+      color: rgba(250,247,242,.42); z-index: 2;
+    }
 
     /* ── AVANT / APRÈS ── */
     .ba-section { background: var(--white); }
-    .ba-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .ba-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .ba-wrap:nth-child(3) { grid-column: 1 / -1; max-width: 680px; margin: 0 auto; width: 100%; }
     .ba-wrap { display: flex; flex-direction: column; gap: 12px; }
     .ba-header { display: flex; justify-content: space-between; align-items: baseline; }
     .ba-header .room {
@@ -529,32 +530,37 @@
     }
     .btn-gold:hover { background: var(--gold); color: var(--dark); transform: translateY(-2px); }
 
-    /* ── TESTIMONIALS ── */
-    .testi-section { background: var(--cream); }
-    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 68px; }
-    .testi-card {
-      padding: 44px 40px; background: var(--white);
-      border-top: 2px solid var(--gold);
-      display: flex; flex-direction: column;
+    /* ── TÉMOIGNAGES ── */
+    .testi-section { background: var(--dark); padding: 120px 0; }
+    .testi-section .label { color: rgba(201,169,110,.48); }
+    .testi-section .title { color: var(--cream); }
+    .testi-feature { padding: 64px 0 60px; border-bottom: 1px solid rgba(201,169,110,.1); max-width: 940px; }
+    .testi-big {
+      font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300;
+      font-size: clamp(24px, 3vw, 42px); color: var(--cream);
+      line-height: 1.45; margin-bottom: 40px;
     }
-    .testi-audience {
-      font-size: 9px; letter-spacing: .28em; text-transform: uppercase;
-      color: var(--gold); display: block; margin-bottom: 20px;
+    .testi-big-footer { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+    .testi-big-name { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: rgba(250,247,242,.65); }
+    .testi-big-role { font-size: 11px; color: rgba(250,247,242,.32); }
+    .testi-big-result {
+      font-size: 9px; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(201,169,110,.28); padding: 5px 13px;
     }
-    .testi-quote {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 19px; font-style: italic; font-weight: 300;
-      color: var(--text); line-height: 1.65; margin-bottom: 32px; flex: 1;
+    .testi-two { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding-top: 60px; }
+    .testi-small blockquote {
+      font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300;
+      font-size: clamp(15px, 1.7vw, 20px); color: rgba(250,247,242,.55);
+      line-height: 1.7; margin-bottom: 18px;
     }
-    .testi-name {
-      font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
-      color: var(--text); display: block;
+    .testi-small cite {
+      font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+      color: rgba(201,169,110,.52); font-style: normal; display: block;
     }
-    .testi-role { font-size: 11px; color: var(--muted); display: block; margin-top: 4px; }
-    .testi-result {
-      display: inline-block; margin-top: 18px;
-      font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--gold); border-bottom: 1px solid rgba(201,169,110,.35); padding-bottom: 2px;
+    .testi-small-result {
+      display: inline-block; margin-top: 10px;
+      font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(201,169,110,.45); border-bottom: 1px solid rgba(201,169,110,.2); padding-bottom: 2px;
     }
 
     /* ── TARIFS ── */
@@ -679,36 +685,28 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1100px) {
-      .ba-grid { grid-template-columns: 1fr 1fr; }
-      .ba-wrap:last-child { grid-column: 1/-1; max-width: 480px; margin: 0 auto; }
+      .ba-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
+      .ba-wrap:nth-child(3) { grid-column: auto; max-width: 100%; }
       .video-inner { grid-template-columns: 1fr; gap: 56px; }
     }
     @media (max-width: 960px) {
       nav { padding: 0 24px; }
       nav .nav-cta { display: none; }
       nav .nav-brand { display: none; }
-      .pourqui-grid { grid-template-columns: 1fr 1fr; }
-      .pourqui-card:nth-child(3n) { border-right: 1px solid var(--gold-dim); }
-      .pourqui-card:nth-child(2n) { border-right: none; }
-      .pourqui-card:nth-last-child(-n+2) { border-bottom: none; }
-      .pourqui-card:nth-last-child(-n+3) { border-bottom: 1px solid var(--gold-dim); }
-      .ba-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-      .ba-wrap:last-child { max-width: 100%; grid-column: auto; }
+      .pourqui-row { grid-template-columns: 40px 1fr auto; gap: 24px; padding: 28px 0; }
+      .pourqui-btn { width: 40px; height: 40px; }
       .ba-slider { aspect-ratio: 4/3; }
       .problem-grid { grid-template-columns: 1fr; }
       .problem-item { border-right: none; border-bottom: 1px solid rgba(201,169,110,.1); padding: 48px 28px; }
       .problem-item:last-child { border-bottom: none; }
-      .stats-dl { grid-template-columns: 1fr; }
-      .stats-pair { border-right: none; border-bottom: 1px solid var(--gold-dim); padding: 52px 28px; }
-      .stats-pair:last-child { border-bottom: none; }
-      .testi-grid { grid-template-columns: 1fr; max-width: 520px; margin: 68px auto 0; }
-      .tarifs-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+      .testi-two { grid-template-columns: 1fr; gap: 48px; }
       .process-ol { grid-template-columns: 1fr 1fr; gap: 52px; }
       .process-ol::before { display: none; }
       .hero-content { padding: 0 24px; max-width: 100%; }
       .hero-overlay {
         background: linear-gradient(to bottom, rgba(250,247,242,.1) 0%, rgba(250,247,242,.72) 45%, rgba(250,247,242,.97) 100%);
       }
+      .img-break { height: 55vh; }
       section { padding: 88px 0; }
       .container { padding: 0 28px; }
       footer .container { flex-direction: column; gap: 28px; text-align: center; }
@@ -718,13 +716,11 @@
     @media (max-width: 640px) {
       .hero-content h1 { font-size: 42px; }
       .process-ol { grid-template-columns: 1fr; }
-      .tarif-card { padding: 40px 28px; }
       .faq-answer { padding-right: 0; }
-      .pourqui-grid { grid-template-columns: 1fr; }
-      .pourqui-card:nth-child(2n) { border-right: none; }
-      .pourqui-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--gold-dim); }
-      .pourqui-card:last-child { border-bottom: none; }
-      .pourqui-card { padding: 36px 28px; }
+      .pourqui-row { grid-template-columns: 32px 1fr; gap: 16px; }
+      .pourqui-btn { display: none; }
+      .img-break { height: 45vh; }
+      .testi-big { font-size: clamp(20px, 5.5vw, 28px); }
     }
   </style>
 </head>
@@ -797,71 +793,83 @@
     <div class="container">
       <span class="label reveal">Pour qui</span>
       <h2 class="title reveal" id="pourqui-h">Vous avez un bien à montrer.<br>Voilà pourquoi ça nous concerne.</h2>
-      <div class="pourqui-grid">
+      <div class="pourqui-list">
 
-        <article class="pourqui-card reveal">
-          <span class="pourqui-num">01</span>
-          <span class="pourqui-cat">Agences immobilières</span>
-          <h3 class="pourqui-title">Chaque mandat valorisé avant la mise en ligne.</h3>
-          <p class="pourqui-desc">Vos fichiers partent le soir. Ils reviennent retouchés dans les 48h. Tarif dégressif à partir de 10 biens par mois, interlocuteur dédié, priorité de traitement.</p>
-          <a href="mailto:contact@ateliervalorisation.fr?subject=Devis%20agence" class="pourqui-link">
-            Demander un devis <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-          </a>
-        </article>
+        <a href="mailto:contact@ateliervalorisation.fr?subject=Devis%20agence" class="pourqui-row reveal">
+          <span class="pourqui-idx">01</span>
+          <div class="pourqui-content">
+            <h3 class="pourqui-title">Agences immobilières</h3>
+            <p class="pourqui-desc-text">Vos fichiers partent le soir. Ils reviennent retouchés dans les 48h. Interlocuteur dédié, priorité de traitement, volume sans limite.</p>
+          </div>
+          <div class="pourqui-btn" aria-hidden="true">
+            <svg viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+          </div>
+        </a>
 
-        <article class="pourqui-card reveal">
-          <span class="pourqui-num">02</span>
-          <span class="pourqui-cat">Particuliers vendeurs</span>
-          <h3 class="pourqui-title">Votre bien se vend plus vite quand les photos lui rendent justice.</h3>
-          <p class="pourqui-desc">Pas besoin d'un photographe professionnel pour commencer. Vous envoyez vos photos telles qu'elles. On s'occupe de la lumière, des couleurs et des perspectives.</p>
-          <a href="mailto:contact@ateliervalorisation.fr?subject=Commande%20vente%20particulier" class="pourqui-link">
-            Démarrer <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-          </a>
-        </article>
+        <a href="mailto:contact@ateliervalorisation.fr?subject=Commande%20vente%20particulier" class="pourqui-row reveal">
+          <span class="pourqui-idx">02</span>
+          <div class="pourqui-content">
+            <h3 class="pourqui-title">Particuliers vendeurs</h3>
+            <p class="pourqui-desc-text">Vous envoyez vos photos telles qu'elles. On s'occupe de la lumière, des couleurs et des perspectives. Votre bien se vend plus vite quand les photos lui rendent justice.</p>
+          </div>
+          <div class="pourqui-btn" aria-hidden="true">
+            <svg viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+          </div>
+        </a>
 
-        <article class="pourqui-card reveal">
-          <span class="pourqui-num">03</span>
-          <span class="pourqui-cat">Propriétaires bailleurs</span>
-          <h3 class="pourqui-title">Airbnb, Booking, location longue durée. Plus de clics sur la même annonce.</h3>
-          <p class="pourqui-desc">Les plateformes trient par taux de clic. Une photo retouchée, c'est plus de visites, plus de réservations, au tarif que vous voulez afficher. À partir de 49 €.</p>
-          <a href="mailto:contact@ateliervalorisation.fr?subject=Commande%20bailleur" class="pourqui-link">
-            Démarrer <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-          </a>
-        </article>
+        <a href="mailto:contact@ateliervalorisation.fr?subject=Commande%20bailleur" class="pourqui-row reveal">
+          <span class="pourqui-idx">03</span>
+          <div class="pourqui-content">
+            <h3 class="pourqui-title">Propriétaires bailleurs</h3>
+            <p class="pourqui-desc-text">Airbnb, Booking, location longue durée. Les plateformes trient par taux de clic. Une photo retouchée, c'est plus de visites et plus de réservations sur la même annonce.</p>
+          </div>
+          <div class="pourqui-btn" aria-hidden="true">
+            <svg viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+          </div>
+        </a>
 
-        <article class="pourqui-card reveal">
-          <span class="pourqui-num">04</span>
-          <span class="pourqui-cat">Photographes indépendants</span>
-          <h3 class="pourqui-title">Déléguer la post-production sans perdre en qualité ni en marge.</h3>
-          <p class="pourqui-desc">Vous shootez. On retouche. Rendu constant, délai garanti, tarif qui préserve votre marge. Plusieurs photographes partenaires depuis plus de six mois.</p>
-          <a href="mailto:contact@ateliervalorisation.fr?subject=Partenariat%20photographe" class="pourqui-link">
-            Devenir partenaire <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-          </a>
-        </article>
+        <a href="mailto:contact@ateliervalorisation.fr?subject=Partenariat%20photographe" class="pourqui-row reveal">
+          <span class="pourqui-idx">04</span>
+          <div class="pourqui-content">
+            <h3 class="pourqui-title">Photographes indépendants</h3>
+            <p class="pourqui-desc-text">Vous shootez. On retouche. Rendu constant, délai garanti, marge préservée. Plusieurs photographes partenaires travaillent avec nous depuis plus de six mois.</p>
+          </div>
+          <div class="pourqui-btn" aria-hidden="true">
+            <svg viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+          </div>
+        </a>
 
-        <article class="pourqui-card reveal">
-          <span class="pourqui-num">05</span>
-          <span class="pourqui-cat">Promoteurs &amp; constructeurs</span>
-          <h3 class="pourqui-title">Du brut de chantier au visuel qui fait acheter sur plan.</h3>
-          <p class="pourqui-desc">VEFA, rénovation à venir, bien en cours de construction. On retouche les photos existantes et on produit des projections 3D pour présenter ce qui n'est pas encore visible.</p>
-          <a href="mailto:contact@ateliervalorisation.fr?subject=Devis%20promoteur" class="pourqui-link">
-            Demander un devis <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-          </a>
-        </article>
+        <a href="mailto:contact@ateliervalorisation.fr?subject=Devis%20promoteur" class="pourqui-row reveal">
+          <span class="pourqui-idx">05</span>
+          <div class="pourqui-content">
+            <h3 class="pourqui-title">Promoteurs &amp; constructeurs</h3>
+            <p class="pourqui-desc-text">VEFA, rénovation à venir, bien en cours de construction. Retouche des photos existantes et projections 3D pour présenter ce qui n'est pas encore visible.</p>
+          </div>
+          <div class="pourqui-btn" aria-hidden="true">
+            <svg viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+          </div>
+        </a>
 
-        <article class="pourqui-card reveal">
-          <span class="pourqui-num">06</span>
-          <span class="pourqui-cat">Marchands de biens &amp; investisseurs</span>
-          <h3 class="pourqui-title">Un portefeuille présenté avec la rigueur qu'il mérite.</h3>
-          <p class="pourqui-desc">Plusieurs biens à traiter en parallèle, délais serrés, exigence de cohérence visuelle sur l'ensemble du portefeuille. On s'adapte au volume et au calendrier.</p>
-          <a href="mailto:contact@ateliervalorisation.fr?subject=Devis%20volume" class="pourqui-link">
-            Parler du projet <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-          </a>
-        </article>
+        <a href="mailto:contact@ateliervalorisation.fr?subject=Devis%20volume" class="pourqui-row reveal">
+          <span class="pourqui-idx">06</span>
+          <div class="pourqui-content">
+            <h3 class="pourqui-title">Marchands de biens &amp; investisseurs</h3>
+            <p class="pourqui-desc-text">Plusieurs biens à traiter en parallèle, délais serrés, cohérence visuelle sur l'ensemble du portefeuille. On s'adapte au volume et au calendrier.</p>
+          </div>
+          <div class="pourqui-btn" aria-hidden="true">
+            <svg viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+          </div>
+        </a>
 
       </div>
     </div>
   </section>
+
+  <!-- ── IMAGE BREAK ── -->
+  <div class="img-break" role="img" aria-label="Photo immobilière après retouche professionnelle">
+    <img src="assets/after_sdb.png" alt="" aria-hidden="true" loading="lazy" width="1920" height="1280">
+    <span class="img-break-caption">Retouche manuelle &middot; Livraison 48h</span>
+  </div>
 
   <!-- ── AVANT / APRÈS ── -->
   <section class="ba-section" aria-labelledby="ba-h">
@@ -978,31 +986,6 @@
     </div>
   </section>
 
-  <!-- ── STATS ── -->
-  <section class="stats-section" aria-label="Chiffres clés du service">
-    <div class="container">
-      <dl class="stats-dl">
-        <div class="stats-pair reveal">
-          <dt><span class="counter" data-target="48">48</span><em>h</em></dt>
-          <dd>Délai de livraison</dd>
-          <span class="stat-sub">Garanti, jours ouvrés</span>
-        </div>
-        <div class="stats-pair reveal">
-          <dt><span class="counter" data-target="100">100</span><em>%</em></dt>
-          <dd>En ligne</dd>
-          <span class="stat-sub">Toute la France, sans déplacement</span>
-        </div>
-        <div class="stats-pair reveal">
-          <dt style="font-size:clamp(34px,4.2vw,54px);margin-bottom:20px;line-height:1.2;">
-            Dès<br><em>1 photo</em>
-          </dt>
-          <dd>Pas de minimum</dd>
-          <span class="stat-sub">Commande à la carte ou au bien</span>
-        </div>
-      </dl>
-    </div>
-  </section>
-
   <!-- ── VIDÉO & 3D ── -->
   <section class="video-section" aria-labelledby="video-h">
     <div class="container">
@@ -1054,80 +1037,31 @@
   <section class="testi-section" aria-labelledby="testi-h">
     <div class="container">
       <span class="label reveal">Ils nous font confiance</span>
-      <h2 class="title reveal" id="testi-h">Trois projets différents.<br>Le même résultat.</h2>
-      <div class="testi-grid">
+      <h2 class="title reveal" id="testi-h" style="color:var(--cream);">Résultats réels.<br>Projets différents.</h2>
 
-        <div class="testi-card reveal">
-          <span class="testi-audience">Agence immobilière</span>
-          <blockquote class="testi-quote">"On retouche tous nos mandats avant la mise en ligne. Le délai 48h est tenu, les photos sont propres. Nos clients voient la différence immédiatement."</blockquote>
-          <span class="testi-name">Marie L.</span>
-          <span class="testi-role">Responsable communication &middot; Bordeaux</span>
-          <span class="testi-result">Partenaire depuis 6 mois</span>
-        </div>
-
-        <div class="testi-card reveal">
-          <span class="testi-audience">Particulière venderesse</span>
-          <blockquote class="testi-quote">"J'ai envoyé mes photos le lundi soir. Le mercredi j'avais les retouches. Le premier visiteur est arrivé le jeudi et a fait une offre dans la semaine."</blockquote>
-          <span class="testi-name">Sophie V.</span>
-          <span class="testi-role">Vente T3 &middot; Nantes</span>
-          <span class="testi-result">Vendu en 9 jours</span>
-        </div>
-
-        <div class="testi-card reveal">
-          <span class="testi-audience">Hôte Airbnb</span>
-          <blockquote class="testi-quote">"J'avais des photos correctes prises avec mon iPhone. Deux semaines après la retouche, mon taux d'occupation est passé de 68 % à 84 %. La différence se voit vraiment."</blockquote>
-          <span class="testi-name">Thomas M.</span>
-          <span class="testi-role">Lyon &middot; T3 de 65 m²</span>
-          <span class="testi-result">+16 pts de taux d'occupation</span>
-        </div>
-
+      <div class="testi-feature reveal">
+        <blockquote class="testi-big">
+          "J'avais des photos correctes prises avec mon iPhone. Deux semaines après la retouche, mon taux d'occupation est passé de 68 % à 84 %. La différence se voit vraiment."
+        </blockquote>
+        <footer class="testi-big-footer">
+          <span class="testi-big-name">Thomas M.</span>
+          <span class="testi-big-role">Hôte Airbnb &middot; Lyon &middot; T3 de 65 m²</span>
+          <span class="testi-big-result">+16 pts de taux d'occupation</span>
+        </footer>
       </div>
-    </div>
-  </section>
 
-  <!-- ── TARIFS ── -->
-  <section class="tarifs-section" aria-labelledby="tarifs-h">
-    <div class="container">
-      <span class="label reveal">Tarifs</span>
-      <h2 class="title reveal" id="tarifs-h">Transparent.<br>Sans surprise.</h2>
-      <p class="intro reveal">Sans abonnement. Sans engagement. Vous envoyez quand vous voulez.</p>
-      <div class="tarifs-grid">
-
-        <article class="tarif-card reveal" aria-label="Offre À la photo, 8 euros par photo">
-          <span class="tarif-name">À la photo</span>
-          <p class="tarif-price" aria-label="8 euros"><sup>€</sup>8</p>
-          <span class="tarif-unit">par photo retouchée</span>
-          <p class="tarif-desc">Pour tester ou rafraîchir un visuel précis. Vous envoyez ce dont vous avez besoin, on retouche à l'unité.</p>
-          <a href="mailto:contact@ateliervalorisation.fr?subject=Commande%20%C3%A0%20la%20photo" class="tarif-cta">
-            Démarrer <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-          </a>
-        </article>
-
-        <article class="tarif-card featured reveal" aria-label="Offre photo bien complet, à partir de 49 euros, le plus demandé">
-          <span class="tarif-name">Photo</span>
-          <span class="tarif-prefix">À partir de</span>
-          <p class="tarif-price" aria-label="49 euros"><sup>€</sup>49</p>
-          <span class="tarif-unit">par bien complet</span>
-          <p class="tarif-desc">Le meilleur rapport pour un bien à mettre en location ou en vente. Résultat livré en 48h, prêt à publier sur toutes les plateformes.</p>
-          <a href="mailto:contact@ateliervalorisation.fr?subject=Commande%20bien%20complet" class="tarif-cta">
-            Démarrer <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-          </a>
-        </article>
-
-        <article class="tarif-card reveal" aria-label="Offre Agence et Volume, tarif sur devis">
-          <span class="tarif-name">Agence &amp; Volume</span>
-          <p class="tarif-price" style="font-size:clamp(28px,3.5vw,44px);margin-bottom:18px;line-height:1.1;">Sur<br>devis</p>
-          <span class="tarif-unit">à partir de 10 biens par mois</span>
-          <p class="tarif-desc">Tarif dégressif, priorité de traitement, interlocuteur dédié. On s'adapte à votre volume et à votre workflow.</p>
-          <a href="mailto:contact@ateliervalorisation.fr?subject=Devis%20agence" class="tarif-cta">
-            Demander un devis <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-          </a>
-        </article>
-
+      <div class="testi-two">
+        <div class="testi-small reveal">
+          <blockquote>"On retouche tous nos mandats avant la mise en ligne. Le délai 48h est tenu, les photos sont propres. Nos clients voient la différence immédiatement."</blockquote>
+          <cite>Marie L. &middot; Responsable communication &middot; Bordeaux</cite>
+          <span class="testi-small-result">Partenaire depuis 6 mois</span>
+        </div>
+        <div class="testi-small reveal">
+          <blockquote>"J'ai envoyé mes photos le lundi soir. Le mercredi j'avais les retouches. Le premier visiteur est arrivé le jeudi et a fait une offre dans la semaine."</blockquote>
+          <cite>Sophie V. &middot; Vente T3 &middot; Nantes</cite>
+          <span class="testi-small-result">Vendu en 9 jours</span>
+        </div>
       </div>
-      <p class="tarifs-note reveal">
-        <strong>Résultat garanti.</strong> Si une retouche ne vous convient pas, on la reprend. Une fois, sans supplément, sans justification.
-      </p>
     </div>
   </section>
 
@@ -1254,12 +1188,19 @@
       });
     }
 
-    /* Parallax hero */
+    /* Parallax hero + image break */
     if (!PRM) {
       gsap.to('#hero-bg', {
         yPercent: 28, ease: 'none',
         scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
       });
+      var imgBreak = document.querySelector('.img-break img');
+      if (imgBreak) {
+        gsap.to(imgBreak, {
+          yPercent: 18, ease: 'none',
+          scrollTrigger: { trigger: '.img-break', start: 'top bottom', end: 'bottom top', scrub: true }
+        });
+      }
     }
 
     /* Scroll reveals */
