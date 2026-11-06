@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "skills": {
+    "design-md": {
+      "source": "/tmp/stitch-skills-main/plugins/stitch-utilities",
+      "sourceType": "local",
+      "computedHash": "d3a4c7d2f2715a33662c8b06ffc16035d01965a8b4ed81c2958fb22ae94760f8"
+    },
+    "enhance-prompt": {
+      "source": "/tmp/stitch-skills-main/plugins/stitch-utilities",
+      "sourceType": "local",
+      "computedHash": "71cc23e9ec5fc6361e12453495fa8c683f6cf26f3efaf9b230b0f43e0a32cc96"
+    },
+    "stitch-loop": {
+      "source": "/tmp/stitch-skills-main/plugins/stitch-utilities",
+      "sourceType": "local",
+      "computedHash": "e04912a9719b855afa733cc928d30dde0b8a5b91707ca27b98f0efcb8d9310a9"
+    },
+    "stitch::code-to-design": {
+      "source": "/tmp/stitch-skills-main/plugins/stitch-design",
+      "sourceType": "local",
+      "computedHash": "c1ac61e0f455944bec4ffef0ba254d3fbb7a53a6654492e4c54736923dbc2b0c"
+    },
+    "stitch::extract-design-md": {
+      "source": "/tmp/stitch-skills-main/plugins/stitch-design",
+      "sourceType": "local",
+      "computedHash": "0ddd62f54b939572347733ff8a5537697e2227b916d3c3620b979577864dcff9"
+    },
+    "stitch::extract-static-html": {
+      "source": "/tmp/stitch-skills-main/plugins/stitch-design",
+      "sourceType": "local",
+      "computedHash": "4b002f266c93a4cb4b6f048e46d5cf42f40085408b10e0b57d13301e618cdac2"
+    },
+    "stitch::generate-design": {
+      "source": "/tmp/stitch-skills-main/plugins/stitch-design",
+      "sourceType": "local",
+      "computedHash": "c5cf0685e477166e16283b5c2ee08c5b5022f0712d2a5988fdb475a9de79ad40"
+    },
+    "stitch::manage-design-system": {
+      "source": "/tmp/stitch-skills-main/plugins/stitch-design",
+      "sourceType": "local",
+      "computedHash": "e55ef1adf10175b9ce3915f0bc7208904805ff14ce954349365dc5aabaa8359b"
+    },
+    "stitch::upload-to-stitch": {
+      "source": "/tmp/stitch-skills-main/plugins/stitch-design",
+      "sourceType": "local",
+      "computedHash": "bd1970c14522f9146fda05c261072a5b59e83bf5ce45e7d45a254939442022d6"
+    },
+    "taste-design": {
+      "source": "/tmp/stitch-skills-main/plugins/stitch-utilities",
+      "sourceType": "local",
+      "computedHash": "1891625787d6f0f3bc45d4a9437c187277af66c219e3ec799b1b4e67822b6146"
+    }
+  }
+}
