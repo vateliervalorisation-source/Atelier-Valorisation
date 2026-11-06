@@ -11,12 +11,6 @@
       "sourceType": "local",
       "computedHash": "71cc23e9ec5fc6361e12453495fa8c683f6cf26f3efaf9b230b0f43e0a32cc96"
     },
-    "logo-design": {
-      "source": "github:kaankiziltug/logo-design-skill@1ec463a3362461378afabf6bc36abe34e7c01e40",
-      "sourceType": "github",
-      "version": "1.4.5",
-      "computedHash": "28a51d3d601bbbea8b283499ef3d565f9cfe3dba098aec1452d41e34da8cd737"
-    },
     "stitch-loop": {
       "source": "/tmp/stitch-skills-main/plugins/stitch-utilities",
       "sourceType": "local",
